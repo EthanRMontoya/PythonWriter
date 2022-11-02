@@ -1,10 +1,11 @@
-from pynput.keyboard import Key, Controller
-from pynput.mouse import Button
-from pynput import mouse
+from pynput.keyboard import Key, Controller as KeyboardController
+from pynput.mouse import Button, Controller as MouseController
+
 
 import time
 
-keyboard = Controller()
+keyboard = KeyboardController()
+mouse = MouseController()
 fo = open("emails.txt", "r")
 delayTime = input("enter your delay time in seconds")
 while True:
@@ -28,5 +29,6 @@ while True:
                 keyboard.tap(Key.backspace)
                 keyboard.release('a')
                 keyboard.release(Key.cmd)
+                mouse.click(Button.left, 1)
         else:
             exit()
